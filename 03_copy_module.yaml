@@ -1,0 +1,15 @@
+---
+- name: copying files to remote 
+  hosts: all
+  become: true
+
+  tasks:
+  - name: copy files
+    copy:
+      src: file_location_
+      dest: remote_server_location
+      owner: ubuntu
+      group: ubuntu
+      mode: 744
+      backup: true
+

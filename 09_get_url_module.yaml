@@ -1,0 +1,13 @@
+---
+- name: download files
+  hosts: all
+
+  tasks:
+  - name: download file
+    get_url:
+      url: link of the download file
+      dest: where u want to download 
+      owner:
+      group:
+      mode: 
+

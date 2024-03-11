@@ -1,0 +1,25 @@
+---
+- name: file module
+  hosts: all
+  become: false
+  
+  - name: creating a file
+    file:
+      path: path_of_file_where_u_want_to_make_file
+      state: touch  #absent(for_delete)
+      owner: ubuntu
+      group: ubuntu
+      mode: 744
+
+  - name : creating a directory 
+    file:
+      path: path_of_folder_where_u_want_to_make_dir
+      state: directory
+
+  - name: change permission 
+    file:
+      path: path_of_file/dir
+      mode: 744
+
+
+

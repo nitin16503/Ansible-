@@ -1,0 +1,22 @@
+---
+- name: user module
+  hosts: all
+  become: true
+
+  tasks:
+  - name: creating a user
+    user:
+      name: shinchan
+      comment: new user added 
+      shell: /bin/bash
+      group: 
+      state: absent
+      remove: yes  #remove data of user 
+
+  - name: set password 
+    user:
+      name: himavari
+      update_password: always
+      password: "{{'cn122@2#dnskn' | password_hash('sha512') }}"
+
+  

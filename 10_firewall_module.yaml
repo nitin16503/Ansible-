@@ -1,0 +1,16 @@
+---
+- name: firewall changes
+  hosts: all
+
+  tasks:
+  - name: enable a service in firewalld
+    firewalld: 
+      port: 80/tcp
+      permanent: true
+      state: enable
+
+  - name: reload the firewalld
+    service:
+      name: nginx
+      state: reloaded 
+

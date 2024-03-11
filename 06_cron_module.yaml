@@ -1,0 +1,25 @@
+---
+- name: cron setup
+  hosts: all 
+  become: false
+
+  tasks:
+  - name: all cron job
+    cron: 
+     name: exact_name_of_cronjob
+     minute: 30 
+     hour: 18
+     day: 15 
+     month: "*"
+     weekday: "*"
+     user: ubuntu
+     job: location_of_script_file
+    
+  - name: remove cron job
+    cron:
+      name: exact_name_of_cron_job
+      state: absent 
+      user: ubuntu
+      disabled: true
+
+

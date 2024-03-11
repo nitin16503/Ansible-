@@ -1,0 +1,12 @@
+---
+- name: script module 
+  hosts: all
+  become: true
+
+  tasks:
+  - name: run script 
+    shell: ./test.sh >> test.log
+    args:
+      chdir: /temp/script/
+      creates: test.log
+
